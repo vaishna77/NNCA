@@ -4,6 +4,6 @@ The low-rank approximations of matrix sub-blocks is constructed using a new Nest
 
 The charges are distributed at the leaf nodes and are distributed uniformly in square [-L,L]^2.
 
-The matrix entries are to be defined in a function getMatrixEntry(i,j) in the kernel.hpp file.
+The matrix entries are to be defined in function "getMatrixEntry(i,j)" of the kernel.hpp file.
 
-The vector to be applied to the matrix is to be defined in VectorXd 'b' in the testFMM2D.cpp
+The vector to be applied to the matrix is to be defined in VectorXd "b" of the testFMM2D.cpp
