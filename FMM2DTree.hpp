@@ -1166,7 +1166,7 @@ public:
 	void assemble_M2L() {
 		// #pragma omp parallel for
 		for (size_t j = 2; j <= nLevels; j++) {
-			#pragma omp parallel for
+			// #pragma omp parallel for
 			for (size_t k = 0; k < nBoxesPerLevel[j]; k++) {
 				// #pragma omp parallel for
 				for(int in=0; in<16; ++in) {
