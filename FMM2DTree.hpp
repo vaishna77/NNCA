@@ -88,7 +88,7 @@ public:
 
   void set_Standard_Cheb_Nodes() {
 		for (int k=0; k<nParticlesInLeafAlong1D; ++k) {
-			Nodes1D.push_back(-cos((k+0.5)/nParticlesInLeafAlong1D*PI));
+			Nodes1D.push_back(-L*cos((k+0.5)/nParticlesInLeafAlong1D*PI));
 		}
 		pts2D temp1;
 		for (int j=0; j<nParticlesInLeafAlong1D; ++j) {
@@ -102,7 +102,7 @@ public:
 
 	void set_Uniform_Nodes() {
 		for (int k=0; k<nParticlesInLeafAlong1D; ++k) {
-			Nodes1D.push_back(-1.0+2.0*(k+1.0)/(nParticlesInLeafAlong1D+1.0));
+			Nodes1D.push_back(-L+2.0*L*(k+1.0)/(nParticlesInLeafAlong1D+1.0));
 		}
 		pts2D temp1;
 		for (int j=0; j<nParticlesInLeafAlong1D; ++j) {

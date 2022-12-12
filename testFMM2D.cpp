@@ -5,7 +5,7 @@
 int main(int argc, char* argv[]) {
 	int nLevels		=	atoi(argv[1]); // number of levels of quad-tree
 	int nParticlesInLeafAlong1D	=	atoi(argv[2]); // assuming the particles are located at tensor product chebyNodes/uniform
-	int L			=	atoi(argv[3]); // half side length of square centered at origin
+	double L			=	atof(argv[3]); // half side length of square centered at origin
 	int TOL_POW = atoi(argv[4]); //tolerance of ACA
 	double start, end;
 
