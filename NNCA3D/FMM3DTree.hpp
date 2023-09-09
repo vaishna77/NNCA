@@ -84,22 +84,22 @@ FMM3DTree(kerneltype* K, int cubeRootN, int nLevels, int nParticlesInLeafAlong1D
 
 	}
 
-  // void set_Standard_Cheb_Nodes() {
-	// 	for (int k=0; k<cubeRootN; ++k) {
-	// 		Nodes1D.push_back(-cos((k+0.5)/cubeRootN*PI));
-	// 	}
-	// 	pts3D temp1;
-	// 	for (int j=0; j<cubeRootN; ++j) {
-	// 		for (int k=0; k<cubeRootN; ++k) {
-	// 			for (int i=0; i<cubeRootN; ++i) {
-	// 				temp1.x	=	Nodes1D[k];
-	// 				temp1.y	=	Nodes1D[j];
-	// 				temp1.z	=	Nodes1D[i];
-	// 				K->particles.push_back(temp1);
-	// 			}
-	// 		}
-	// 	}
-	// }
+  void set_Standard_Cheb_Nodes() {
+		for (int k=0; k<cubeRootN; ++k) {
+			Nodes1D.push_back(-cos((k+0.5)/cubeRootN*PI));
+		}
+		pts3D temp1;
+		for (int j=0; j<cubeRootN; ++j) {
+			for (int k=0; k<cubeRootN; ++k) {
+				for (int i=0; i<cubeRootN; ++i) {
+					temp1.x	=	Nodes1D[k];
+					temp1.y	=	Nodes1D[j];
+					temp1.z	=	Nodes1D[i];
+					K->particles.push_back(temp1);
+				}
+			}
+		}
+	}
 
 	void set_Uniform_Nodes(double h) {
 		double loc = -L+h/2.0;

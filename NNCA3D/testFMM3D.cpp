@@ -17,9 +17,7 @@ int main(int argc, char* argv[]) {
 	userkernel* mykernel		=	new userkernel(particles, Qchoice);
 	FMM3DTree<userkernel>* A	=	new FMM3DTree<userkernel>(mykernel, cubeRootN, nLevels, nParticlesInLeafAlong1D, L, TOL_POW);
 
-	double h = 2.0*L/nParticlesInLeafAlong1D;
-	A->set_Uniform_Nodes(h);
-	// A->set_Standard_Cheb_Nodes();
+	A->set_Standard_Cheb_Nodes();
 	A->createTree();
 	A->assign_Tree_Interactions();
 	A->assign_Center_Location();
