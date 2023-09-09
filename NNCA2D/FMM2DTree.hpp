@@ -1340,6 +1340,42 @@ public:
 		return sum/NumBoxes;
 	}
 
+	void findMemory(double &sum) {
+		sum = 0.0;
+		for (size_t j = 2; j <= nLevels; j++) {
+			for (size_t k = 0; k < nBoxesPerLevel[j]; k++) {
+				for(int in=0; in<16; ++in) {
+					if(tree[j][k].innerNumbers[in] != -1) {
+						int kIL = tree[j][k].innerNumbers[in];
+						sum += tree[j][k].M2L[kIL].size();
+					}
+				}
+				for(int on=0; on<24; ++on) {
+					if(tree[j][k].outerNumbers[on] != -1) {
+						int kIL = tree[j][k].outerNumbers[on];
+						sum += tree[j][k].M2L[kIL].size();
+					}
+				}
+			}
+		}
+
+		for (size_t j = 2; j <= nLevels; j++) {
+			// #pragma omp parallel for
+			for (size_t k = 0; k < nBoxesPerLevel[j]; k++) {
+				sum += tree[j][k].L2P.size();
+			}
+		}
+		for (size_t k = 0; k < nBoxesPerLevel[nLevels]; k++) {
+			sum += tree[nLevels][k].chargeLocations.size()*tree[nLevels][k].chargeLocations.size(); //self
+			for (size_t n = 0; n < 8; n++) {
+				int nn = tree[nLevels][k].neighborNumbers[n];
+				if(nn != -1) {
+					sum += tree[nLevels][k].chargeLocations.size()*tree[nLevels][nn].chargeLocations.size();
+				}
+			}
+		}
+	}
+
 	double compute_error(int nBox) { // evaluating at chargeLocations
 		Eigen::VectorXd true_potential = Eigen::VectorXd::Zero(tree[nLevels][nBox].chargeLocations.size());
 		for (size_t k = 0; k < nBoxesPerLevel[nLevels]; k++) {
