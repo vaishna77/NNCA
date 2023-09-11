@@ -1,4 +1,4 @@
-CC			=/opt/homebrew/bin/g++-13
+CC			=g++
 KERNEL		= -DUSE_Matern # -DUSE_Matern, -DUSE_Gaussian
 DIM		= -DUSE_DIM2 # -DUSE_DIM2, -DUSE_DIM4
 MATVEC = -DUSE_AFMMnD  # -DUSE_directMatVec, -DUSE_AFMMnD

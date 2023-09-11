@@ -1,4 +1,4 @@
-CC			=/opt/homebrew/bin/g++-13
+CC			=g++
 CFLAGS		=-c -Wall -O4 -fopenmp -std=c++17 -I$(EIGEN_PATH)
 LDFLAGS		=-fopenmp -std=c++17
 SOURCES		=./testFMM3D.cpp
