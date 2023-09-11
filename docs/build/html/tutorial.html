@@ -1,0 +1,293 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Tutorial &#8212; NNCA 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Reproducibility" href="reproducibility.html" />
+    <link rel="prev" title="Installation and Building" href="installation.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="tutorial">
+<h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this heading">¶</a></h1>
+<p>The project “NNCA” has the following sub-projects/directories:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>docs:: It holds the files related to this documentation</p></li>
+<li><p>NCA2DBebendorf:: It holds the implementation of the NCA developed by Bebendorf in C++ for 2D problems. Its performance is tested by evaluating a fast matrix-vector product using NCA.</p></li>
+<li><p>NCA2DZhao::  It holds the implementation of the NCA developed by Zhao in C++ for 2D problems. Its performance is tested by evaluating a fast matrix-vector product using NCA.</p></li>
+<li><p>NNCA2D::  It holds the implementation of the NNCA that is proposed in C++ for 2D problems. Its performance is tested by evaluating a fast matrix-vector product using NNCA.</p></li>
+<li><p>NNCA3D::  It holds the implementation of the NNCA that is proposed in C++ for 3D problems. Its performance is tested by evaluating a fast matrix-vector product using NNCA and by solving an integral equation solver.</p></li>
+<li><p>NNCAnD::  It holds the implementation of the NNCA that is proposed in C++ for nD problems. Its performance is tested by evaluating a fast matrix-vector product using NNCA.</p></li>
+<li><p>FSVM::  It holds the implementation of Support Vector Machine (SVM) using NNCA in C++ for nD problems.</p></li>
+</ol>
+</div></blockquote>
+<p>Below is a description of the sub-projects listed above.</p>
+<section id="setting-parameters-in-make-file">
+<span id="settingparams"></span><h2>Setting Parameters in make file<a class="headerlink" href="#setting-parameters-in-make-file" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Each of these sub-projects has a make file with extension <code class="docutils literal notranslate"><span class="pre">.mk</span></code>. The following variable needs to be set by the user in the make file before running it:</p></li>
+</ol>
+<section id="nca2dbebendorf-nca2dzhao-nnca2d-nnca3d-nncand-fsvm">
+<h3>NCA2DBebendorf, NCA2DZhao, NNCA2D, NNCA3D, NNCAnD, FSVM<a class="headerlink" href="#nca2dbebendorf-nca2dzhao-nnca2d-nnca3d-nncand-fsvm" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">CC</span></code>: Set it to the path where the g++ compiler is located in your computer.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="fsvm">
+<h3>FSVM<a class="headerlink" href="#fsvm" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">KERNEL</span></code>: Set it to <code class="docutils literal notranslate"><span class="pre">-DUSE_Matern</span></code> to use Matern kernel or <code class="docutils literal notranslate"><span class="pre">-DUSE_Gaussian</span></code> to use Gaussian kernel.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DIM</span></code>: Set it to the dimension of the problem. For example <code class="docutils literal notranslate"><span class="pre">2</span></code> for 2D, <a href="#id1"><span class="problematic" id="id2">``</span></a>4``for 4D, etc.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MATVEC</span></code>: Set it to  <code class="docutils literal notranslate"><span class="pre">-DUSE_directMatVec</span></code> to implement normal SVM (where matrix-vector products are computed naively) or <code class="docutils literal notranslate"><span class="pre">-DUSE_AFMMnD</span></code> to implement fast SVM (where matrix-vector products are accelerated using NNCA).</p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+<section id="building-and-executing">
+<h2>Building and Executing<a class="headerlink" href="#building-and-executing" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Install the library by following the steps given in the <a class="reference internal" href="installation.html#installation"><span class="std std-ref">Installation and Building</span></a></p></li>
+<li><p>Each of these sub-projects has make file(s) with extension <code class="docutils literal notranslate"><span class="pre">.mk</span></code>. Set the various parameters in the make file as described in <a class="reference internal" href="#settingparams"><span class="std std-ref">Setting Parameters in make file</span></a>.</p></li>
+<li><p>Run the make file.</p></li>
+<li><p>While running it make sure to give the required run-time inputs. To know details about the run-time inputs look at the main function in the file with name mentioned under <code class="docutils literal notranslate"><span class="pre">SOURCES</span></code> flag in the make file. Below is a description of the inputs required from the user for different sub-projects:</p></li>
+</ol>
+<section id="nca2dbebendorf-nca2dzhao-nnca2d">
+<h3>NCA2DBebendorf, NCA2DZhao, NNCA2D<a class="headerlink" href="#nca2dbebendorf-nca2dzhao-nnca2d" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">nLevels</span></code> : no. of levels to build in the hierarchical quad-tree</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nParticlesInLeafAlong1D</span></code> : square root of the maximum no. of particles a leaf can have</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">L</span></code> : half side length of the square domain centered at origin (It is assumed the domain is a square centered at origin with half side length equal to L).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TOL_POW</span></code> : pow(10, -TOL_POW) is the tolerance the code uses to terminate ACA</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">yesToUniformDistribution</span></code> : set it to 1 to consider a uniform distribution of particles, 0 to consider Chebyshev distribution</p></li>
+</ol>
+</div></blockquote>
+</section>
+<section id="nnca3d-fast-matrix-vector-product-makefile3d-mk">
+<h3>NNCA3D - fast matrix-vector product (Makefile3D.mk)<a class="headerlink" href="#nnca3d-fast-matrix-vector-product-makefile3d-mk" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cubeRootN</span></code> : no. of levels to build in the hierarchical quad-tree</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nParticlesInLeafAlong1D</span></code> : square root of the maximum no. of particles a leaf can have</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">L</span></code> : half side length of the cube domain centered at origin (It is assumed the domain is a cube centered at origin with half side length equal to L).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TOL_POW</span></code> : pow(10, -TOL_POW) is the tolerance the code uses to terminate ACA</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Qchoice</span></code> : It is used to choose the kernel function among multiple definitions defined in the kernel.hpp file. Look at the function <code class="docutils literal notranslate"><span class="pre">getMatrixEntry</span></code> in the <code class="docutils literal notranslate"><span class="pre">kernel.hp</span></code> file for the choices to be used for various definitions. For example, to use the Laplacian 3D kernel set <code class="docutils literal notranslate"><span class="pre">Qchoice</span></code> to 7.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">yesToUniformDistribution</span></code> : set it to 1 to consider a uniform distribution of particles, 0 to consider Chebyshev distribution</p></li>
+</ol>
+</div></blockquote>
+</section>
+<section id="nnca3d-integral-equation-solver-makefile3dsolve-mk">
+<h3>NNCA3D - integral equation solver (Makefile3Dsolve.mk)<a class="headerlink" href="#nnca3d-integral-equation-solver-makefile3dsolve-mk" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cubeRootN</span></code> : no. of levels to build in the hierarchical quad-tree</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nParticlesInLeafAlong1D</span></code> : square root of the maximum no. of particles a leaf can have</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">L</span></code> : half side length of the cube domain centered at origin (It is assumed the domain is a cube centered at origin with half side length equal to L).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TOL_POW</span></code> : pow(10, -TOL_POW) is the tolerance the code uses to terminate ACA</p></li>
+</ol>
+</div></blockquote>
+</section>
+<section id="nncand">
+<h3>NNCAnD<a class="headerlink" href="#nncand" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ndim</span></code> : The dimension of the problem being solved</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n</span></code> : It is used to set the number of particles (target points and charge points are assumed to be the same). The number of particles is equal to pow(n,ndim).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nParticlesInLeafAlong1D</span></code> : It is used to set the maximum no. of particles a leaf can have. the maximum no. of particles a leaf can have is equal to pow(nParticlesInLeafAlong1D,ndim).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">L</span></code> : half side length of the hypercube domain centered at origin (It is assumed the domain is a hypercube centered at origin with half side length equal to L).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TOL_POW</span></code> : pow(10, -TOL_POW) is the tolerance the code uses to terminate ACA</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Qchoice</span></code> : It is used to choose the kernel function among multiple definitions defined in the kernel.hpp file. Look at the function <code class="docutils literal notranslate"><span class="pre">getMatrixEntry</span></code> in the <code class="docutils literal notranslate"><span class="pre">kernel.hp</span></code> file for the choices to be used for various definitions. For example, to use the Laplacian 3D kernel set <code class="docutils literal notranslate"><span class="pre">Qchoice</span></code> to 7.</p></li>
+</ol>
+</div></blockquote>
+</section>
+<section id="id3">
+<h3>FSVM<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">numPoints</span></code> : It is used to set the total number of data points to be used (sum of test and train data). pow(numPoints, dim) is the number of points, where <code class="docutils literal notranslate"><span class="pre">dim</span></code> is the dimension of the problem.</p></li>
+</ol>
+</div></blockquote>
+</section>
+<section id="example-building-and-executing">
+<h3>Example building and executing<a class="headerlink" href="#example-building-and-executing" title="Permalink to this heading">¶</a></h3>
+<p>Navigate to the directory that holds the input .cpp file and run a make file with extension <code class="docutils literal notranslate"><span class="pre">.mk</span></code> in that directory to get your executable. The name of the executable is the name set in the <code class="docutils literal notranslate"><span class="pre">EXECUTABLE</span></code> flag of the make file. Then run the executable by giving the required run-time inputs. A sample run looks like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>user@computer NNCA$ cd NNCA2D
+user@computer NNCA2D$ make -f Makefile2D.mk clean
+user@computer NNCA2D$ make -f Makefile2D.mk
+user@computer NNCA2D$ ./testFMM2D 5 6 1 5 1
+</pre></div>
+</div>
+<p>For the sake of this tutorial, we are going to be using the <code class="docutils literal notranslate"><span class="pre">testHODLR3D.cpp</span></code> file that is listed under <code class="docutils literal notranslate"><span class="pre">examples/</span></code> since it demonstrates the features of this library. For the most part, comments in the file demonstrate intended functionality. However, we go over the main functions that may be of interest to a user on this page.</p>
+<p><strong>NOTE</strong>: It is assumed that you have already completed the installation process of getting the dependencies.</p>
+</section>
+</section>
+<section id="defining-the-kernel-function">
+<h2>Defining the kernel function<a class="headerlink" href="#defining-the-kernel-function" title="Permalink to this heading">¶</a></h2>
+<p>The matrix that needs to be solved for is abstracted through this derived class of <code class="docutils literal notranslate"><span class="pre">kernel</span></code>. The main method that needs to be set for this class is <code class="docutils literal notranslate"><span class="pre">getMatrixEntry</span></code> which returns the entry at the <span class="math notranslate nohighlight">\(i^{\mathrm{th}}\)</span> row and <span class="math notranslate nohighlight">\(j^{\mathrm{th}}\)</span> column of the matrix. Provide the definition of the kernel function in the member function <code class="docutils literal notranslate"><span class="pre">getMatrixEntry</span></code> of class <code class="docutils literal notranslate"><span class="pre">userkernel</span></code> in the <code class="docutils literal notranslate"><span class="pre">kernel.hpp</span></code> file.</p>
+</section>
+<section id="defining-location-of-particles-data-points">
+<h2>Defining location of particles/data points:<a class="headerlink" href="#defining-location-of-particles-data-points" title="Permalink to this heading">¶</a></h2>
+<section id="id4">
+<h3>NCA2DBebendorf, NCA2DZhao, NNCA2D<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h3>
+<p>The location of target points and charge points are to be defined in the member variable <code class="docutils literal notranslate"><span class="pre">particles_X</span></code> and <code class="docutils literal notranslate"><span class="pre">particles_Y</span></code> respectively of the <code class="docutils literal notranslate"><span class="pre">userkernel</span></code> object defined in the main function.</p>
+</section>
+<section id="nnca3d">
+<h3>NNCA3D<a class="headerlink" href="#nnca3d" title="Permalink to this heading">¶</a></h3>
+<p>The location of particles (target points and charge points are assumed to be the same) are to be defined in the member variable <code class="docutils literal notranslate"><span class="pre">particles</span></code> of the <code class="docutils literal notranslate"><span class="pre">userkernel</span></code> object defined in the main function.</p>
+</section>
+<section id="id5">
+<h3>FSVM<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h3>
+<p>The location of data points are to be defined in the variable <code class="docutils literal notranslate"><span class="pre">gridPoints</span></code> of the main function.</p>
+</section>
+</section>
+<section id="defining-vector-b">
+<h2>Defining vector <code class="docutils literal notranslate"><span class="pre">b</span></code>:<a class="headerlink" href="#defining-vector-b" title="Permalink to this heading">¶</a></h2>
+<section id="nca2dbebendorf-nca2dzhao-nnca2d-nnca3d-nncand">
+<h3>NCA2DBebendorf, NCA2DZhao, NNCA2D, NNCA3D, NNCAnD<a class="headerlink" href="#nca2dbebendorf-nca2dzhao-nnca2d-nnca3d-nncand" title="Permalink to this heading">¶</a></h3>
+<p>The vector that is to be applied to the matrix to perform matrix-vector product is to be defined in the variable <code class="docutils literal notranslate"><span class="pre">b</span></code>, which is a vector of <code class="docutils literal notranslate"><span class="pre">Eigen::VectorXd</span></code> type.</p>
+</section>
+</section>
+<section id="defining-vector-x">
+<h2>Defining vector <code class="docutils literal notranslate"><span class="pre">x</span></code>:<a class="headerlink" href="#defining-vector-x" title="Permalink to this heading">¶</a></h2>
+<section id="id6">
+<h3>NNCA3D<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h3>
+<p>The RHS vector in the linear system <code class="docutils literal notranslate"><span class="pre">Ax=b</span></code>, that is solved in the <code class="docutils literal notranslate"><span class="pre">NNCA3D/testFMM3Dsolve.cpp</span></code> file is to be defined in the variable <code class="docutils literal notranslate"><span class="pre">x</span></code>, which is a vector of <code class="docutils literal notranslate"><span class="pre">Eigen::VectorXd</span></code> type.</p>
+</section>
+</section>
+<section id="creating-an-instance-of-afmmnd">
+<h2>Creating an Instance of <code class="docutils literal notranslate"><span class="pre">AFMMnD</span></code>:<a class="headerlink" href="#creating-an-instance-of-afmmnd" title="Permalink to this heading">¶</a></h2>
+<p>The main operations of the sub-project NNCAnD are carried out through the <code class="docutils literal notranslate"><span class="pre">AFMMnD</span></code> class defined in the file <code class="docutils literal notranslate"><span class="pre">NNCA/NNCAnD/AFMMnD.hpp</span></code>. The parameters of its constructor are (ndim, N, nParticlesInLeafAlong1D, L, TOL_POW, Qchoice, nLevels, points), where N is the number of particles in the system, nLevels is the number of levels of the <span class="math notranslate nohighlight">\(2^d\)</span> tree that is to be built, points is a vector holding the location of particles:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AFMMnD</span><span class="o">*</span> <span class="n">afmmnd</span> <span class="o">=</span> <span class="n">new</span> <span class="n">AFMMnD</span><span class="p">(</span><span class="n">ndim</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">nParticlesInLeafAlong1D</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">TOL_POW</span><span class="p">,</span> <span class="n">Qchoice</span><span class="p">,</span> <span class="n">nLevels</span><span class="p">,</span> <span class="n">points</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>We will now proceed to demonstrate the individual methods available under this class.</p>
+<section id="assembleafmmnd">
+<h3><code class="docutils literal notranslate"><span class="pre">assembleAFMMnD</span></code><a class="headerlink" href="#assembleafmmnd" title="Permalink to this heading">¶</a></h3>
+<p>Assemble the matrix in NNCAnD structure; i.e. it finds the low rank representation of the low-rank matrix sub-blocks:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">afmmnd</span><span class="o">-&gt;</span><span class="n">assembleAFMMnD</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+<section id="matvecproduct">
+<h3><code class="docutils literal notranslate"><span class="pre">matVecProduct</span></code><a class="headerlink" href="#matvecproduct" title="Permalink to this heading">¶</a></h3>
+<p>Multiplies the matrix that is defined through object <code class="docutils literal notranslate"><span class="pre">userkernel</span></code> with the vector <code class="docutils literal notranslate"><span class="pre">b</span></code> and return the product:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AFMM_Ab</span> <span class="o">=</span> <span class="n">afmmnd</span><span class="o">-&gt;</span><span class="n">matVecProduct</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">NNCA</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation and Building</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#setting-parameters-in-make-file">Setting Parameters in make file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#building-and-executing">Building and Executing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#defining-the-kernel-function">Defining the kernel function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#defining-location-of-particles-data-points">Defining location of particles/data points:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#defining-vector-b">Defining vector <code class="docutils literal notranslate"><span class="pre">b</span></code>:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#defining-vector-x">Defining vector <code class="docutils literal notranslate"><span class="pre">x</span></code>:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-an-instance-of-afmmnd">Creating an Instance of <code class="docutils literal notranslate"><span class="pre">AFMMnD</span></code>:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reproducibility.html">Reproducibility</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="installation.html" title="previous chapter">Installation and Building</a></li>
+      <li>Next: <a href="reproducibility.html" title="next chapter">Reproducibility</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, vaishnavi.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="_sources/tutorial.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
