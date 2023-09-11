@@ -4,7 +4,7 @@ This library constructs a H2 matrix representation of a given matrix using NNCA.
   i) the performance of the fast H2 matrix vector product using NNCA in 2D, 3D, and nD
   ii) the performance of fast kernel based SVM, where the matrix vector products encountered are accelerated using NNCA.
 
-Learn more about :math:`\texttt{NNCAlib}` by visiting the
+Learn more about NNCA by visiting
 
 * Code Repository: https://github.com/SAFRAN-LAB/NNCA
 * Documentation: https://hodlr3d.readthedocs.io/en/latest/
