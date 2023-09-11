@@ -7,7 +7,10 @@ Welcome to NNCAlib's Documentation!
 About :math:`\texttt{NNCAlib}`:
 ==================================
 
-NNCA (New Nested Cross Approximation) is an :math:`\mathcal{O}(N)` complexity algorithm to construct :math:`\mathcal{H}^{2}` matrices. :math:`\texttt{NNCAlib}` is a library to compute fast matrix-vector products using NNCA.
+NNCA (New Nested Cross Approximation) is an :math:`\mathcal{O}(N)` complexity algorithm to construct :math:`\mathcal{H}^{2}` matrices. :math:`\texttt{NNCAlib}` library constructs a H2 matrix representation of a given matrix using NNCA. Further it demonstrates:
+
+  #. the performance of the fast H2 matrix vector product using NNCA in 2D, 3D, and nD
+  #. the performance of fast kernel based SVM, where the matrix vector products encountered are accelerated using NNCA.
 
 NCA is a technique developed to construct the :math:`\mathcal{H}^{2}` matrix approximation of a given matrix arising out of :math:`N` body problems. NNCA is a new variant of the Nested Cross Approximation (NCA). NNCA differs from the existing NCAs in the following ways. The existing NCA by `Bebendorf et al. <http://webdoc.sub.gwdg.de/ebook/serien/e/sfb611/491.pdf>`_ is not an analytic method, whereas NNCA is an algebraic method. Another existing NNCA by `Zhao et al. <https://engineering.purdue.edu/~djiao/publications/Zhao_NCA.pdf>`_ is an algebraic method and uses two tree traversals in its algorithm. Whereas NNCA uses a single tree traversal in its algorithm. It has been numerically shown in the NNCA article that NNCA performs computationally better than the existing NCAs.
 
@@ -31,5 +34,5 @@ Other Links
 Learn more about :math:`\texttt{NNCAlib}` by visiting the
 
 * Code Repository: https://github.com/SAFRAN-LAB/NNCA
-* Documentation: https://hodlr3d.readthedocs.io/en/latest/
+* Documentation: https://nnca.readthedocs.io/en/latest/
 * Article: https://arxiv.org/pdf/2203.14832.pdf

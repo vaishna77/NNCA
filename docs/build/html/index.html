@@ -79,7 +79,13 @@
 <h1>Welcome to NNCAlib’s Documentation!<a class="headerlink" href="#welcome-to-nncalib-s-documentation" title="Permalink to this heading"></a></h1>
 <section id="about-texttt-nncalib">
 <h2>About <span class="math notranslate nohighlight">\(\texttt{NNCAlib}\)</span>:<a class="headerlink" href="#about-texttt-nncalib" title="Permalink to this heading"></a></h2>
-<p>NNCA (New Nested Cross Approximation) is an <span class="math notranslate nohighlight">\(\mathcal{O}(N)\)</span> complexity algorithm to construct <span class="math notranslate nohighlight">\(\mathcal{H}^{2}\)</span> matrices. <span class="math notranslate nohighlight">\(\texttt{NNCAlib}\)</span> is a library to compute fast matrix-vector products using NNCA.</p>
+<p>NNCA (New Nested Cross Approximation) is an <span class="math notranslate nohighlight">\(\mathcal{O}(N)\)</span> complexity algorithm to construct <span class="math notranslate nohighlight">\(\mathcal{H}^{2}\)</span> matrices. <span class="math notranslate nohighlight">\(\texttt{NNCAlib}\)</span> library constructs a H2 matrix representation of a given matrix using NNCA. Further it demonstrates:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>the performance of the fast H2 matrix vector product using NNCA in 2D, 3D, and nD</p></li>
+<li><p>the performance of fast kernel based SVM, where the matrix vector products encountered are accelerated using NNCA.</p></li>
+</ol>
+</div></blockquote>
 <p>NCA is a technique developed to construct the <span class="math notranslate nohighlight">\(\mathcal{H}^{2}\)</span> matrix approximation of a given matrix arising out of <span class="math notranslate nohighlight">\(N\)</span> body problems. NNCA is a new variant of the Nested Cross Approximation (NCA). NNCA differs from the existing NCAs in the following ways. The existing NCA by <a class="reference external" href="http://webdoc.sub.gwdg.de/ebook/serien/e/sfb611/491.pdf">Bebendorf et al.</a> is not an analytic method, whereas NNCA is an algebraic method. Another existing NNCA by <a class="reference external" href="https://engineering.purdue.edu/~djiao/publications/Zhao_NCA.pdf">Zhao et al.</a> is an algebraic method and uses two tree traversals in its algorithm. Whereas NNCA uses a single tree traversal in its algorithm. It has been numerically shown in the NNCA article that NNCA performs computationally better than the existing NCAs.</p>
 <p>The code is written in C++ and features an easy-to-use interface.</p>
 <p>More about NNCA can be found in the <a class="reference external" href="https://arxiv.org/pdf/2203.14832.pdf">article</a>.</p>
@@ -123,7 +129,7 @@
 <p>Learn more about <span class="math notranslate nohighlight">\(\texttt{NNCAlib}\)</span> by visiting the</p>
 <ul class="simple">
 <li><p>Code Repository: <a class="reference external" href="https://github.com/SAFRAN-LAB/NNCA">https://github.com/SAFRAN-LAB/NNCA</a></p></li>
-<li><p>Documentation: <a class="reference external" href="https://hodlr3d.readthedocs.io/en/latest/">https://hodlr3d.readthedocs.io/en/latest/</a></p></li>
+<li><p>Documentation: <a class="reference external" href="https://nnca.readthedocs.io/en/latest/">https://nnca.readthedocs.io/en/latest/</a></p></li>
 <li><p>Article: <a class="reference external" href="https://arxiv.org/pdf/2203.14832.pdf">https://arxiv.org/pdf/2203.14832.pdf</a></p></li>
 </ul>
 </section>
