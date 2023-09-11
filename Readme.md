@@ -1,11 +1,11 @@
 This library was created by Vaishnavi Gujjula, during the course of her Ph.D.
 
-This library constructs a H2 matrix representation of a given matrix and performs H2 matrix vector product.
+This library constructs a H2 matrix representation of a given matrix using NNCA. Further it demonstrates
+  i) the performance of the fast H2 matrix vector product using NNCA in 2D, 3D, and nD
+  ii) the performance of fast kernel based SVM, where the matrix vector products encountered are accelerated using NNCA.
 
-The H2 matrix representation of a given matrix is constructed using a new Nested Cross Approximation (NNCA)[[1](https://arxiv.org/abs/2203.14832)].
+Learn more about :math:`\texttt{NNCAlib}` by visiting the
 
-The particles are distributed at the leaf nodes and are distributed uniformly in square [-L,L]^2.
-
-The matrix entries are to be defined in function "getMatrixEntry(i,j)" of the kernel.hpp file.
-
-The vector to be applied to the matrix is to be defined in VectorXd "b" of the testFMM2D.cpp.
+* Code Repository: https://github.com/SAFRAN-LAB/NNCA
+* Documentation: https://hodlr3d.readthedocs.io/en/latest/
+* Article: https://arxiv.org/pdf/2203.14832.pdf
