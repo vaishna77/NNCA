@@ -1,9 +1,9 @@
 CC			=/opt/homebrew/bin/g++-13
-CFLAGS		=-c -Wall -O4 -fopenmp -std=c++17 -I$(EIGEN_PATH)
-LDFLAGS		=-fopenmp -std=c++17
-SOURCES		=./testFMM3Dsolve.cpp
+CFLAGS		=-c -Wall -O4 -fopenmp -std=c++17
+LDFLAGS		=-fopenmp -std=c++17 -I$(EIGEN_PATH)
+SOURCES		=./testFMMnD.cpp
 OBJECTS		=$(SOURCES:.cpp=.o)
-EXECUTABLE	=./testFMM3Dsolve
+EXECUTABLE	=./testFMMnD
 
 all: $(SOURCES) $(EXECUTABLE)
 
@@ -14,4 +14,4 @@ $(EXECUTABLE): $(OBJECTS)
 		$(CC) $(CFLAGS) $< -o $@
 
 clean:
-	rm a.out testFMM3Dsolve *.o
+	rm a.out testFMMnD *.o

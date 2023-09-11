@@ -7,6 +7,7 @@ int main(int argc, char* argv[]) {
 	int nParticlesInLeafAlong1D	=	atoi(argv[2]); // assuming the particles are located at tensor product chebyNodes/uniform
 	double L			=	atof(argv[3]); // half side length of square centered at origin
 	int TOL_POW = atoi(argv[4]); //tolerance of ACA
+	int yesToUniformDistribution = atoi(argv[5]);
 	double start, end;
 
 	/////////////////////////////////////////////////////////////////////////
@@ -15,8 +16,12 @@ int main(int argc, char* argv[]) {
 	userkernel* mykernel		=	new userkernel(particles_X, particles_Y);
 	FMM2DTree<userkernel>* A	=	new FMM2DTree<userkernel>(mykernel, nLevels, nParticlesInLeafAlong1D, L, TOL_POW);
 
-	A->set_Uniform_Nodes();
-	// A->set_Standard_Cheb_Nodes();
+	if (yesToUniformDistribution == 1) {
+		A->set_Uniform_Nodes();
+	}
+	else {
+		A->set_Standard_Cheb_Nodes();
+	}
 	A->createTree();
 	A->assign_Tree_Interactions();
 	A->assign_Center_Location();

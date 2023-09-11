@@ -8,6 +8,7 @@ int main(int argc, char* argv[]) {
 	double L			=	atof(argv[3]);
 	int TOL_POW = atoi(argv[4]);
 	int Qchoice = atoi(argv[5]);
+	int yesToUniformDistribution = atoi(argv[6]);
 	double start, end;
 	int nLevels		=	ceil(3*log(double(cubeRootN)/nParticlesInLeafAlong1D)/log(8));
 	// std::cout << "nLevels: " << nLevels << std::endl;
@@ -17,7 +18,13 @@ int main(int argc, char* argv[]) {
 	userkernel* mykernel		=	new userkernel(particles, Qchoice);
 	FMM3DTree<userkernel>* A	=	new FMM3DTree<userkernel>(mykernel, cubeRootN, nLevels, nParticlesInLeafAlong1D, L, TOL_POW);
 
-	A->set_Standard_Cheb_Nodes();
+	double h = 2.0*L/nParticlesInLeafAlong1D;
+	if (yesToUniformDistribution == 1) {
+		A->set_Uniform_Nodes(h);
+	}
+	else {
+		A->set_Standard_Cheb_Nodes();
+	}
 	A->createTree();
 	A->assign_Tree_Interactions();
 	A->assign_Center_Location();
@@ -38,7 +45,7 @@ int main(int argc, char* argv[]) {
 	std::cout << std::endl << "Time taken to assemble is: " << timeAssemble << std::endl;
 	/////////////////////////////////////////////////////////////////////////
 	int N = A->N;
-	// to speed up the computation of finding error in the solution, b_true is considered as a vector of ones and zeros. The location of ones is defined as below
+	// to speed up the computation of finding error in the solution, b is considered as a vector of ones and zeros. The location of ones is defined as below
 	// Eigen::VectorXd b=Eigen::VectorXd::Ones(N);
 	Eigen::VectorXd b=Eigen::VectorXd::Zero(N);
   int n = N/500;

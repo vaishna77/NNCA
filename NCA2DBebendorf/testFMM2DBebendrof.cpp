@@ -5,11 +5,13 @@
 int main(int argc, char* argv[]) {
 	int nLevels		=	atoi(argv[1]);
 	int nParticlesInLeafAlong1D	=	atoi(argv[2]); // assuming the particles are located at tensor product chebyNodes
-	int L			=	atoi(argv[3]);
+	double L			=	atoi(argv[3]);
 	int TOL_POW = atoi(argv[4]);
+	int yesToUniformDistribution = atoi(argv[5]);
 	double epsilon_NCA = pow(10,-1.0*TOL_POW);
 
 	double eta = 1.0/1.25;// = 0.1;
+	// double eta = 0.1;
 	int nChebNodes1D = ceil(log(epsilon_NCA)/log(eta));
 	double start, end;
 
@@ -20,7 +22,7 @@ int main(int argc, char* argv[]) {
 	FMM2DTree<userkernel>* A	=	new FMM2DTree<userkernel>(mykernel, nLevels, nChebNodes1D, nParticlesInLeafAlong1D, L, TOL_POW);
 
 	A->set_Uniform_Nodes();
-	A->set_Standard_Cheb_Nodes();
+	A->set_Standard_Cheb_Nodes(); // this is not for global points. It is part of the algorithm of NCA by Bebendorf
 	A->createTree();
 	A->assign_Tree_Interactions();
 	A->assign_Center_Location();

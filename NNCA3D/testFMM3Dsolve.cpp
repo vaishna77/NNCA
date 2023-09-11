@@ -43,7 +43,7 @@ int main(int argc, char* argv[]) {
 	int nParticlesInLeafAlong1D	=	atoi(argv[2]); // assuming the particles are located at tensor product chebyNodes
 	double L			=	atof(argv[3]);
 	int TOL_POW = atoi(argv[4]);
-	int Qchoice = atoi(argv[5]);
+	int Qchoice = 17;
 	double start, end;
 	int nLevels		=	ceil(3*log(double(cubeRootN)/nParticlesInLeafAlong1D)/log(8));
 	// std::cout << "nLevels: " << nLevels << std::endl;
