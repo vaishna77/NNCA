@@ -7,5 +7,5 @@ This library constructs a H2 matrix representation of a given matrix using NNCA.
 Learn more about NNCA by visiting
 
 * Code Repository: https://github.com/SAFRAN-LAB/NNCA
-* Documentation: https://hodlr3d.readthedocs.io/en/latest/
+* Documentation: https://nnca.readthedocs.io/en/latest/
 * Article: https://arxiv.org/pdf/2203.14832.pdf
