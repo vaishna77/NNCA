@@ -21,21 +21,21 @@ Dependencies
 
 **NOTE**: On MacOS, the default compiler is `clang` which doesn't have OpenMP support. You will have to use g++ to make use of the speedups from OpenMP::
 
-    user@computer HODLR3D$ brew install g++-13
+    user@computer NNCA$ brew install g++-13
 
 Installation
 -------------
 
-Set the environment variable ``EIGEN_PATH`` to the location of your Eigen installation. This is needed by the Make file.::
+Set the environment variable ``EIGEN_PATH`` to the location of your Eigen installation. This is needed by the make files.::
 
-    user@computer HODLR3D$ export EIGEN_PATH=path/to/eigen/
+    user@computer NNCA$ export EIGEN_PATH=path/to/eigen/
 
 .. _Testing:
 
 Testing
 -------
 
-Now, we need to ensure that all the functions of the libraries function as intended. For this purpose, we will be running the script ``NNCA2D/testFMM2D.cpp``.
+Now, we need to ensure that the installation is proper and if the dependencies are recognised. For this purpose, we will be running the script ``NNCA2D/testFMM2D.cpp``.
 Run ``NNCA2D/Makefile2D.mk`` to get your executable.
 To check this on your computer, run the following lines::
 

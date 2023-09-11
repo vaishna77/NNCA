@@ -1,48 +1,119 @@
-
 <!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-
-    <title>Reproducibility &#8212; NNCA 1.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reproducibility &mdash; NNCA 1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Tutorial" href="tutorial.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+    <link rel="prev" title="Tutorial" href="tutorial.html" /> 
+</head>
 
-  </head><body>
-  
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
           
+          
+          <a href="index.html" class="icon icon-home">
+            NNCA
+              <img src="_static/NNCAlogo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation and Building</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Reproducibility</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#experiment-1-matrix-vector-product-with-uniform-distribution-of-particles-in-2d-and-its-comparison-with-the-existing-ncas">Experiment 1: Matrix-vector product with uniform distribution of particles in 2D and its comparison with the existing NCAs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#figure-2">Figure 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#figure-3">Figure 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#figure-4">Figure 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#figure-5">Figure 5</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#experiment-2-matrix-vector-product-with-chebyshev-distribution-of-particles-in-2d">Experiment 2: Matrix-vector product with Chebyshev distribution of particles in 2D</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#figure-6">Figure 6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#figure-7">Figure 7</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#experiment-3-matrix-vector-product-with-a-uniform-distribution-of-particles-in-3d">Experiment 3: Matrix-vector product with a uniform distribution of particles in 3D</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#figure-8">Figure 8</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#experiment-4-matrix-vector-product-with-chebyshev-distribution-of-particles-in-3d">Experiment 4: Matrix-vector product with Chebyshev distribution of particles in 3D</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#figure-9">Figure 9</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#experiment-5-integral-equation-solver-in-3d">Experiment 5: Integral equation solver in 3D</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#figure-10">Figure 10</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#experiment-6-kernel-svm-in-4d">Experiment 6: Kernel SVM in 4D</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#table-5-and-figure-11">Table 5 and Figure 11</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#table-6">Table 6</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
-          <div class="body" role="main">
-            
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NNCA</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Reproducibility</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/reproducibility.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="reproducibility">
-<h1>Reproducibility<a class="headerlink" href="#reproducibility" title="Permalink to this heading">¶</a></h1>
-<p>This part of the documentation helps in reproducing the results shown in the article titled <strong>A new nested cross approximation</strong>, authored by <strong>Vaishnavi Gujjula, Sivaram Ambikasaran</strong>.
+<h1>Reproducibility<a class="headerlink" href="#reproducibility" title="Permalink to this heading"></a></h1>
+<p>This part of the documentation helps in reproducing the results shown in the <a class="reference external" href="https://arxiv.org/pdf/2203.14832.pdf">article</a> titled <strong>A new nested cross approximation</strong>, authored by <strong>Vaishnavi Gujjula, Sivaram Ambikasaran</strong>.
 The code is available as an open source library and can be found <a class="reference external" href="https://github.com/SAFRAN-LAB/NNCA">here</a>.</p>
 <section id="experiment-1-matrix-vector-product-with-uniform-distribution-of-particles-in-2d-and-its-comparison-with-the-existing-ncas">
-<h2>Experiment 1: Matrix-vector product with uniform distribution of particles in 2D and its comparison with the existing NCAs<a class="headerlink" href="#experiment-1-matrix-vector-product-with-uniform-distribution-of-particles-in-2d-and-its-comparison-with-the-existing-ncas" title="Permalink to this heading">¶</a></h2>
+<h2>Experiment 1: Matrix-vector product with uniform distribution of particles in 2D and its comparison with the existing NCAs<a class="headerlink" href="#experiment-1-matrix-vector-product-with-uniform-distribution-of-particles-in-2d-and-its-comparison-with-the-existing-ncas" title="Permalink to this heading"></a></h2>
 <section id="figure-2">
-<h3>Figure 2<a class="headerlink" href="#figure-2" title="Permalink to this heading">¶</a></h3>
+<h3>Figure 2<a class="headerlink" href="#figure-2" title="Permalink to this heading"></a></h3>
 <ol class="upperroman simple">
 <li><p>To obtain NNCA plots of Figure 2 of the article (labeled as ‘Proposed’ in Figure 2), which is about the various numerical benchmarks of NNCA vs <span class="math notranslate nohighlight">\(\epsilon_{ACA}\)</span>, the following steps are to be followed</p></li>
 </ol>
@@ -111,7 +182,7 @@ The code is available as an open source library and can be found <a class="refer
 </div></blockquote>
 </section>
 <section id="figure-3">
-<h3>Figure 3<a class="headerlink" href="#figure-3" title="Permalink to this heading">¶</a></h3>
+<h3>Figure 3<a class="headerlink" href="#figure-3" title="Permalink to this heading"></a></h3>
 <p>To obtain Figure 3 of the article, follow the same steps as that of Figure 2 except for the inputs at run-time. The following inputs are to be given at run-time for NCA by Zhao, NCA by Bebendorf, and NNCA.</p>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">nLevels</span></code> : varied from 2 through 6</p></li>
@@ -122,25 +193,24 @@ The code is available as an open source library and can be found <a class="refer
 </ol>
 </section>
 <section id="figure-4">
-<h3>Figure 4<a class="headerlink" href="#figure-4" title="Permalink to this heading">¶</a></h3>
+<h3>Figure 4<a class="headerlink" href="#figure-4" title="Permalink to this heading"></a></h3>
 <p>To obtain Figure 4, follow the same steps as that of Figure 2 except for the definition of the kernel function. Set the kernel function as <span class="math notranslate nohighlight">\(\left(\frac{r}{a}\right)\chi_{r&lt;a}+\left(\frac{a}{r}\right)\chi_{r\geq a}\)</span> in the <code class="docutils literal notranslate"><span class="pre">getMatrixEntry</span></code> function of the <code class="docutils literal notranslate"><span class="pre">userkernel</span></code> class located in the <code class="docutils literal notranslate"><span class="pre">kernel.hpp</span></code> file.</p>
 </section>
 <section id="figure-5">
-<h3>Figure 5<a class="headerlink" href="#figure-5" title="Permalink to this heading">¶</a></h3>
+<h3>Figure 5<a class="headerlink" href="#figure-5" title="Permalink to this heading"></a></h3>
 <p>To obtain Figure 5 of the article, follow the same steps as that of Figure 3 except for the definition of the kernel function. Set the kernel function as <span class="math notranslate nohighlight">\(\left(\frac{r}{a}\right)\chi_{r&lt;a}+\left(\frac{a}{r}\right)\chi_{r\geq a}\)</span> in the <code class="docutils literal notranslate"><span class="pre">getMatrixEntry</span></code> function of the <code class="docutils literal notranslate"><span class="pre">userkernel</span></code> class located in the <code class="docutils literal notranslate"><span class="pre">kernel.hpp</span></code> file.</p>
 </section>
 </section>
 <section id="experiment-2-matrix-vector-product-with-chebyshev-distribution-of-particles-in-2d">
-<h2>Experiment 2: Matrix-vector product with Chebyshev distribution of particles in 2D<a class="headerlink" href="#experiment-2-matrix-vector-product-with-chebyshev-distribution-of-particles-in-2d" title="Permalink to this heading">¶</a></h2>
+<h2>Experiment 2: Matrix-vector product with Chebyshev distribution of particles in 2D<a class="headerlink" href="#experiment-2-matrix-vector-product-with-chebyshev-distribution-of-particles-in-2d" title="Permalink to this heading"></a></h2>
 <section id="figure-6">
-<h3>Figure 6<a class="headerlink" href="#figure-6" title="Permalink to this heading">¶</a></h3>
+<h3>Figure 6<a class="headerlink" href="#figure-6" title="Permalink to this heading"></a></h3>
 <p>Line 18 of <code class="docutils literal notranslate"><span class="pre">NNCA2D/testFMM2D.cpp</span></code> file, which is <code class="docutils literal notranslate"><span class="pre">A-&gt;set_Uniform_Nodes();</span></code>, has to be commented and uncomment Line 19 of <code class="docutils literal notranslate"><span class="pre">NNCA2D/testFMM2D.cpp</span></code> file, which is <code class="docutils literal notranslate"><span class="pre">A-&gt;set_Standard_Cheb_Nodes();</span></code>. Further follow the below steps</p>
 <ol class="arabic simple">
 <li><p>Set the kernel function as <span class="math notranslate nohighlight">\(\left(\frac{r(\log(r)-1)}{a(\log(a)-1)}\right)\chi_{r&lt;a}+\left(\frac{\log(r)}{\log(a)}\right)\chi_{r\geq a}\)</span> in the <code class="docutils literal notranslate"><span class="pre">getMatrixEntry</span></code> function of the <code class="docutils literal notranslate"><span class="pre">userkernel</span></code> class located in the <code class="docutils literal notranslate"><span class="pre">NNCA2D/kernel.hpp</span></code> file.</p></li>
 <li><p>Run the file <code class="docutils literal notranslate"><span class="pre">NNCA2D/testFMM2D.cpp</span></code> using the <code class="docutils literal notranslate"><span class="pre">NNCA2D/Makefile2D.mk</span></code>. After successful compilation, an executable by name <code class="docutils literal notranslate"><span class="pre">NNCA2D/testFMM2D</span></code> gets generated. Then input the following at run-time</p></li>
 </ol>
 <blockquote>
-<div><blockquote>
 <div><ol class="loweralpha simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">nLevels</span></code> = 6</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">nParticlesInLeafAlong1D</span></code> = 5</p></li>
@@ -153,7 +223,11 @@ The code is available as an open source library and can be found <a class="refer
 </pre></div>
 </div>
 </div></blockquote>
-<p>To obtain Figure 7 of the article, follow the same steps as that of Figure 6 except for the inputs at run-time. The following inputs are to be given at run-time.</p>
+</section>
+<section id="figure-7">
+<h3>Figure 7<a class="headerlink" href="#figure-7" title="Permalink to this heading"></a></h3>
+<blockquote>
+<div><p>To obtain Figure 7 of the article, follow the same steps as that of Figure 6 except for the inputs at run-time. The following inputs are to be given at run-time.</p>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">nLevels</span></code> : varied from 2 through 6</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">nParticlesInLeafAlong1D</span></code> = 5</p></li>
@@ -169,9 +243,9 @@ The code is available as an open source library and can be found <a class="refer
 </section>
 </section>
 <section id="experiment-3-matrix-vector-product-with-a-uniform-distribution-of-particles-in-3d">
-<h2>Experiment 3: Matrix-vector product with a uniform distribution of particles in 3D<a class="headerlink" href="#experiment-3-matrix-vector-product-with-a-uniform-distribution-of-particles-in-3d" title="Permalink to this heading">¶</a></h2>
+<h2>Experiment 3: Matrix-vector product with a uniform distribution of particles in 3D<a class="headerlink" href="#experiment-3-matrix-vector-product-with-a-uniform-distribution-of-particles-in-3d" title="Permalink to this heading"></a></h2>
 <section id="figure-8">
-<h3>Figure 8<a class="headerlink" href="#figure-8" title="Permalink to this heading">¶</a></h3>
+<h3>Figure 8<a class="headerlink" href="#figure-8" title="Permalink to this heading"></a></h3>
 <p>To obtain NNCA plots of Figure 8 of the article, which is about the various numerical benchmarks of NNCA in 3D vs <span class="math notranslate nohighlight">\(\epsilon_{ACA}\)</span>, the following steps are to be followed</p>
 <blockquote>
 <div><ol class="arabic simple">
@@ -196,9 +270,9 @@ The code is available as an open source library and can be found <a class="refer
 </section>
 </section>
 <section id="experiment-4-matrix-vector-product-with-chebyshev-distribution-of-particles-in-3d">
-<h2>Experiment 4: Matrix-vector product with Chebyshev distribution of particles in 3D<a class="headerlink" href="#experiment-4-matrix-vector-product-with-chebyshev-distribution-of-particles-in-3d" title="Permalink to this heading">¶</a></h2>
+<h2>Experiment 4: Matrix-vector product with Chebyshev distribution of particles in 3D<a class="headerlink" href="#experiment-4-matrix-vector-product-with-chebyshev-distribution-of-particles-in-3d" title="Permalink to this heading"></a></h2>
 <section id="figure-9">
-<h3>Figure 9<a class="headerlink" href="#figure-9" title="Permalink to this heading">¶</a></h3>
+<h3>Figure 9<a class="headerlink" href="#figure-9" title="Permalink to this heading"></a></h3>
 <p>Line 21 of <code class="docutils literal notranslate"><span class="pre">NNCA3D/testFMM3D.cpp</span></code> file, which is <code class="docutils literal notranslate"><span class="pre">A-&gt;set_Uniform_Nodes(h);</span></code>, has to be commented and uncomment Line 22 of <code class="docutils literal notranslate"><span class="pre">NNCA3D/testFMM3D.cpp</span></code> file, which is <code class="docutils literal notranslate"><span class="pre">A-&gt;set_Standard_Cheb_Nodes();</span></code>. Then follow the below steps</p>
 <ol class="arabic simple">
 <li><p>To set the kernel function as <span class="math notranslate nohighlight">\(\left(\frac{r}{a}\right)\chi_{r&lt;a}+\left(\frac{a}{r}\right)\chi_{r\geq a}\)</span>, choose <code class="docutils literal notranslate"><span class="pre">Qchoice</span></code> to be 17 at run time.</p></li>
@@ -221,9 +295,9 @@ The code is available as an open source library and can be found <a class="refer
 </section>
 </section>
 <section id="experiment-5-integral-equation-solver-in-3d">
-<h2>Experiment 5: Integral equation solver in 3D<a class="headerlink" href="#experiment-5-integral-equation-solver-in-3d" title="Permalink to this heading">¶</a></h2>
+<h2>Experiment 5: Integral equation solver in 3D<a class="headerlink" href="#experiment-5-integral-equation-solver-in-3d" title="Permalink to this heading"></a></h2>
 <section id="figure-10">
-<h3>Figure 10<a class="headerlink" href="#figure-10" title="Permalink to this heading">¶</a></h3>
+<h3>Figure 10<a class="headerlink" href="#figure-10" title="Permalink to this heading"></a></h3>
 <p>To obtain NNCA plots of Figure 10 of the article, which is about the various numerical benchmarks of NNCA in 3D vs <span class="math notranslate nohighlight">\(\epsilon_{ACA}\)</span>, the following steps are to be followed</p>
 <blockquote>
 <div><ol class="arabic simple">
@@ -246,9 +320,9 @@ The code is available as an open source library and can be found <a class="refer
 </section>
 </section>
 <section id="experiment-6-kernel-svm-in-4d">
-<h2>Experiment 6: Kernel SVM in 4D<a class="headerlink" href="#experiment-6-kernel-svm-in-4d" title="Permalink to this heading">¶</a></h2>
+<h2>Experiment 6: Kernel SVM in 4D<a class="headerlink" href="#experiment-6-kernel-svm-in-4d" title="Permalink to this heading"></a></h2>
 <section id="table-5-and-figure-11">
-<h3>Table 5 and Figure 11<a class="headerlink" href="#table-5-and-figure-11" title="Permalink to this heading">¶</a></h3>
+<h3>Table 5 and Figure 11<a class="headerlink" href="#table-5-and-figure-11" title="Permalink to this heading"></a></h3>
 <p>To obtain the results of Table 5 and Figure 11 of the article, which is about the performance of Fast SVM vs Normal SVM in 2D, the following steps are to be followed</p>
 <ol class="arabic">
 <li><p>Set the <code class="docutils literal notranslate"><span class="pre">KERNEL</span></code>, <code class="docutils literal notranslate"><span class="pre">DIM</span></code>, <code class="docutils literal notranslate"><span class="pre">MATVEC</span></code> flags in the  <code class="docutils literal notranslate"><span class="pre">Makefile.mk</span></code> file as below</p>
@@ -268,11 +342,11 @@ The code is available as an open source library and can be found <a class="refer
 </ol>
 <p>This will print various benchmarks. Table 5 of the article is populated using these results. To obtain Figure 5, the following steps are to be followed</p>
 <ol class="arabic simple">
-<li><p>Run the <code class="docutils literal notranslate"><span class="pre">FSVM/matlab/plot_decision2D.m</span></code> file. It prompts the user to input the kernel being used. The prompt says <a href="#id1"><span class="problematic" id="id2">``</span></a>Enter 0 for Matern and 1 for Gaussian `` . When this is inputed, the user could see the figures.</p></li>
+<li><p>Run the <code class="docutils literal notranslate"><span class="pre">FSVM/matlab/plot_decision2D.m</span></code> file. It prompts the user to input the kernel being used. The prompt says “Enter 0 for Matern and 1 for Gaussian “. When this is inputed, the user could see the figures.</p></li>
 </ol>
 </section>
 <section id="table-6">
-<h3>Table 6<a class="headerlink" href="#table-6" title="Permalink to this heading">¶</a></h3>
+<h3>Table 6<a class="headerlink" href="#table-6" title="Permalink to this heading"></a></h3>
 <p>To obtain the results of Table 6 of the article, which is about the performance of Fast SVM vs Normal SVM in 4D, the following steps are to be followed</p>
 <ol class="arabic simple">
 <li><p>Set the <code class="docutils literal notranslate"><span class="pre">KERNEL</span></code> flag as <code class="docutils literal notranslate"><span class="pre">USE_Matern</span></code>, <code class="docutils literal notranslate"><span class="pre">DIM</span></code> as <code class="docutils literal notranslate"><span class="pre">USE_DIM2</span></code> in the <code class="docutils literal notranslate"><span class="pre">Makefile.mk</span></code>. Set the <code class="docutils literal notranslate"><span class="pre">MATVEC</span></code> flag in the <code class="docutils literal notranslate"><span class="pre">Makefile.mk</span></code> as below
@@ -294,81 +368,33 @@ The code is available as an open source library and can be found <a class="refer
 </section>
 
 
+           </div>
           </div>
-          
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="tutorial.html" class="btn btn-neutral float-left" title="Tutorial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Vaishnavi Gujjula.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="index.html">NNCA</a></h1>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
 
-
-
-
-
-
-
-
-<h3>Navigation</h3>
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation and Building</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Reproducibility</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#experiment-1-matrix-vector-product-with-uniform-distribution-of-particles-in-2d-and-its-comparison-with-the-existing-ncas">Experiment 1: Matrix-vector product with uniform distribution of particles in 2D and its comparison with the existing NCAs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#experiment-2-matrix-vector-product-with-chebyshev-distribution-of-particles-in-2d">Experiment 2: Matrix-vector product with Chebyshev distribution of particles in 2D</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#experiment-3-matrix-vector-product-with-a-uniform-distribution-of-particles-in-3d">Experiment 3: Matrix-vector product with a uniform distribution of particles in 3D</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#experiment-4-matrix-vector-product-with-chebyshev-distribution-of-particles-in-3d">Experiment 4: Matrix-vector product with Chebyshev distribution of particles in 3D</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#experiment-5-integral-equation-solver-in-3d">Experiment 5: Integral equation solver in 3D</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#experiment-6-kernel-svm-in-4d">Experiment 6: Kernel SVM in 4D</a></li>
-</ul>
-</li>
-</ul>
-
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="tutorial.html" title="previous chapter">Tutorial</a></li>
-  </ul></li>
-</ul>
-</div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
-
-
-
-
-
-
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;2023, vaishnavi.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.3.0</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
-      
-      |
-      <a href="_sources/reproducibility.rst.txt"
-          rel="nofollow">Page source</a>
-    </div>
-
-    
-
-    
-  </body>
+</body>
 </html>

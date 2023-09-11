@@ -13,7 +13,7 @@ NCA is a technique developed to construct the :math:`\mathcal{H}^{2}` matrix app
 
 The code is written in C++ and features an easy-to-use interface.
 
-To know more about NNCA, read the `article <https://arxiv.org/pdf/2203.14832.pdf>`_
+More about NNCA can be found in the `article <https://arxiv.org/pdf/2203.14832.pdf>`_.
 
 Doc Contents
 ============
@@ -32,4 +32,4 @@ Learn more about :math:`\texttt{NNCAlib}` by visiting the
 
 * Code Repository: https://github.com/SAFRAN-LAB/NNCA
 * Documentation: https://hodlr3d.readthedocs.io/en/latest/
-* Article: https://arxiv.org/pdf/2203.14832.pdf 
+* Article: https://arxiv.org/pdf/2203.14832.pdf

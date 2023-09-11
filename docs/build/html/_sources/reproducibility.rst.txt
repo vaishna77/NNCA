@@ -2,7 +2,7 @@
 Reproducibility
 ***************
 
-This part of the documentation helps in reproducing the results shown in the article titled **A new nested cross approximation**, authored by **Vaishnavi Gujjula, Sivaram Ambikasaran**.
+This part of the documentation helps in reproducing the results shown in the `article <https://arxiv.org/pdf/2203.14832.pdf>`_ titled **A new nested cross approximation**, authored by **Vaishnavi Gujjula, Sivaram Ambikasaran**.
 The code is available as an open source library and can be found `here <https://github.com/SAFRAN-LAB/NNCA>`_.
 
 Experiment 1: Matrix-vector product with uniform distribution of particles in 2D and its comparison with the existing NCAs
@@ -102,8 +102,9 @@ Line 18 of ``NNCA2D/testFMM2D.cpp`` file, which is ``A->set_Uniform_Nodes();``, 
 
      NNCA2D/testFMM2D 6 5 1.0 3 0
 
- Figure 7
- ^^^^^^^^
+
+Figure 7
+^^^^^^^^
 
  To obtain Figure 7 of the article, follow the same steps as that of Figure 6 except for the inputs at run-time. The following inputs are to be given at run-time.
 
@@ -205,7 +206,7 @@ To obtain the results of Table 5 and Figure 11 of the article, which is about th
 
 This will print various benchmarks. Table 5 of the article is populated using these results. To obtain Figure 5, the following steps are to be followed
 
-#. Run the ``FSVM/matlab/plot_decision2D.m`` file. It prompts the user to input the kernel being used. The prompt says ``Enter 0 for Matern and 1 for Gaussian `` . When this is inputed, the user could see the figures.
+#. Run the ``FSVM/matlab/plot_decision2D.m`` file. It prompts the user to input the kernel being used. The prompt says "Enter 0 for Matern and 1 for Gaussian ". When this is inputed, the user could see the figures.
 
 Table 6
 ^^^^^^^
